@@ -1,7 +1,7 @@
 fx_version 'cerulean'
 game 'gta5'
-author 'APEX'
-version '4.0.3'
+author 'Felipe Becker'
+version '4.0.0'
 description 'APEX Speedometer: telemetry, editor, shift lights and built-in instrument layouts'
 ui_page 'web/index.html'
 client_scripts {'config.lua','client/framework.lua','client/registry.lua','client/models.lua','client/profiles.lua','client/bridge.lua','client/trip.lua','client/editor.lua','client/signals.lua','client/main.lua'}
