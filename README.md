@@ -1,20 +1,18 @@
 # Apex_Speedometer 4.0.0
 
+---
+
 ## 📸 Preview
 
-![Preview 1](preview/Preview1.png)
+<div align="center">
 
-![Preview 2](preview/Preview2.png)
+<img src="Preview/Preview1.png" width="48%">
+<img src="Preview/Preview2.png" width="48%">
+<img src="Preview/Preview3.png" width="48%">
 
-![Preview 3](preview/Preview3.png)
+</div>
 
-![Preview 4](preview/Preview4.png)
-
-![Preview 5](preview/Preview5.png)
-
-![Preview 6](preview/Preview6.png)
-
-![Preview 7](preview/Preview7.png)
+---
 
 # Apex_Speedometer 4.0.0
 
