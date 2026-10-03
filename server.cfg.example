@@ -1,6 +1,0 @@
-# Inicie seu framework e combustível antes destes recursos.
-# Não execute as versões antigas/monolíticas junto dos modelos novos.
-ensure velo_core
-ensure apex_speedometer
-ensure zsx_speedometer
-# Cada modelo é opcional; velo_core precisa de pelo menos um modelo para exibir o painel.
