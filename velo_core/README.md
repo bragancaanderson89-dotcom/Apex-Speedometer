@@ -6,4 +6,4 @@ A versão 3.2 corrige o reconhecimento do motor quando o native retorna `1`, que
 
 Inicie antes de um modelo compatível (`apex_speedometer`, `zsx_speedometer` ou outro registrado pelo SDK). Não exige `qbx_core` nem `qb-core`; detecta ambos e também funciona no modo independente.
 
-Configuração: `config.lua`. Diagnóstico dentro de um veículo: `/velodiag`, relatório no F8. Instale usando o nome `velo_core`. Consulte README e SDK da suite para adaptadores e modelos adicionais.
+Configuração: `config.lua`. Diagnóstico dentro de um veículo: `/velodiag`, relatório no F8. Instale usando o nome `velo_core`.
