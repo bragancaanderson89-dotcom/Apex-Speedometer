@@ -1,6 +1,6 @@
 # zsx_speedometer 3.2
 
-Modelo integrado a partir do ZSX fornecido pelo autor, com suas fontes e composição.
+Modelo integrado a partir da Fonte ZSX Montserrat, com suas fontes e composição.
 
 Requer `velo_core` 3.0. Mantenha o nome da pasta, inicie `ensure velo_core` e depois `ensure zsx_speedometer`. Selecione ZSX em `/editvelo`.
 
