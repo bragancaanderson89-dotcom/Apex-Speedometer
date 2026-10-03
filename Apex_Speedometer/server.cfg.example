@@ -1,0 +1,3 @@
+# Inicie qbx_core ou qb-core e o combustível antes deste recurso.
+ensure Apex_Speedometer
+# Não inicie velo_core, apex_speedometer ou zsx_speedometer junto dele.

@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "models": [
+    "apex",
+    "truck",
+    "zsx"
+  ],
+  "browserErrors": [],
+  "failedRequests": []
+}

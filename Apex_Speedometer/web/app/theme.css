@@ -1,0 +1,21 @@
+/* Monochrome studio chrome: individual dashboard accents remain user configurable. */
+.velo-editor{background:radial-gradient(ellipse at 70% 39%,#202327bb,#08090bea 66%);color:#ebedef;font-family:Rajdhani,'Segoe UI',Arial,sans-serif}
+.studio.is-editing-velo .velo-editor{background:radial-gradient(ellipse at 72% 35%,#1b1e21,#08090b 70%)}
+.editor-topline{color:#92999e}.editor-topline b{color:#f4f5f6}.editor-topline span:last-child{color:#b2b6bb}
+.editor-panel{width:346px;background:linear-gradient(155deg,#191b1efb,#0b0c0efb);border:1px solid #454a50;border-radius:15px;box-shadow:0 18px 55px #000b,0 0 0 1px #ffffff08}
+.editor-panel header{background:linear-gradient(140deg,#272a2d,#161719);border-bottom:1px solid #454a50}
+.editor-eyebrow{color:#aeb2b5}.editor-panel h1{color:#f5f6f6;font-weight:600}
+.editor-panel button{border-color:#42474b;background:#24272a;color:#e0e3e5}.editor-panel button:hover{background:#32363a;border-color:#8d949a;color:#fff}
+.editor-panel button:focus-visible,.editor-panel input:focus-visible,.editor-panel select:focus-visible,.offer-link:focus-visible,.editor-guide:focus-visible{outline:2px solid #f0f0ed;outline-offset:2px}
+.editor-scroll{scrollbar-color:#73777b #141619;color-scheme:dark}.editor-scroll::-webkit-scrollbar{width:7px}.editor-scroll::-webkit-scrollbar-track{background:#141619}.editor-scroll::-webkit-scrollbar-thumb{background:#73777b;border:1px solid #25282a;border-radius:8px}.editor-scroll::-webkit-scrollbar-thumb:hover{background:#b7bbbe}
+.model-picker{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.model-picker button{min-width:0;padding:8px 4px}.model-picker button[aria-pressed=true]{border-color:#d9dddf;background:linear-gradient(150deg,#5a5e613c,#232628)}.model-picker strong{letter-spacing:1px}.model-picker legend,.model-offers legend{color:#d4d7d9}
+.model-preview{height:76px}.model-preview .truck-view{width:100%;height:100%}.model-preview .truck-view svg{width:100%;height:100%}
+.editor-section{border-color:#4c52552f}.editor-section-title,.editor-section>label:first-child{color:#e1e3e4}.editor-hint,.editor-pair>label,.editor-check,.editor-range-label{color:#aeb4b8}.editor-range-label output{color:#f1f2f2}
+.editor-panel select,.editor-panel input[type=number],.editor-panel input[type=text]{background:#101214;color:#f0f1f2;border-color:#51565b}.editor-panel input[type=range],.editor-check input{accent-color:#dddfe0}.editor-color input{background:#1e2123;border-color:#62696d}
+.shift-material-picker button[aria-pressed=true]{border-color:#d4d7d8;background:#e2e4e519}.editor-import-preview{border-color:#aaaeb255;background:#c1c5c708}.editor-import-preview p{color:#e1e3e4}
+.editor-panel .editor-save{background:#e6e8e8;border-color:#fff;color:#111315;font-weight:700}.editor-panel .editor-save:hover{background:#fff;color:#050606}.editor-status{border-color:#51565b44;color:#b4babd}.editor-status.has-error{color:#ff8989}
+.editor-guide{border-color:#d8dbdd;background:#e7ebec12}.editor-guide>span{background:#303437;color:#fff;border-color:#858d92}.editor-guide>i{background:#f5f5f3}.editor-guide.is-locked{border-color:#d2a470;background:#d2a47012}
+.has-grid .editor-canvas{background-image:linear-gradient(#d9dddf10 1px,transparent 1px),linear-gradient(90deg,#d9dddf10 1px,transparent 1px)}.has-grid .editor-canvas:after{background:linear-gradient(90deg,transparent calc(50% - .5px),#e6e7e633 50%,transparent calc(50% + .5px)),linear-gradient(transparent calc(50% - .5px),#e6e7e633 50%,transparent calc(50% + .5px))}
+.editor-help{color:#a1a6aa}.editor-help kbd{color:#d8dcde;background:#24282bbb;border-color:#757b7f55}
+.model-offer{background:linear-gradient(145deg,#232629,#111315);border-color:#5d63664e}.offer-preview{background:radial-gradient(ellipse,#5660693f,transparent 70%)}.offer-link{background:#e7eaed16;border-color:#adb3b655}.offer-link:hover{background:#e7eaed29;border-color:#e7eaed}
+@media(max-width:700px){.editor-panel{width:auto}}

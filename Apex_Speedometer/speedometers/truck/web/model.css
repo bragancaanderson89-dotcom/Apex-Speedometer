@@ -1,0 +1,77 @@
+.truck-view{width:100%;height:100%;aspect-ratio:600/285;position:relative;pointer-events:none;user-select:none;filter:drop-shadow(0 2px 5px #0009)}
+.truck-instrument{display:block;width:100%;height:100%;overflow:visible}
+.truck-view text{font-family:Rajdhani,'Arial Narrow',Arial,sans-serif;fill:var(--model-text,#f0f1ed);text-anchor:middle;font-variant-numeric:tabular-nums}
+.truck-view .truck-rim-outer{fill:#020608;stroke-opacity:.92;stroke-width:3;filter:drop-shadow(0 3px 4px #000b)}
+.truck-view .truck-rim-inner{fill:#172329;stroke:#a6b7ba;stroke-opacity:.54;stroke-width:1.25}
+.truck-view .truck-rim-highlight{fill:none;stroke-width:1.1;stroke-opacity:.92;filter:drop-shadow(0 0 2px #d1e4eb55)}
+.truck-view .truck-face{stroke:#364851;stroke-opacity:.65;stroke-width:1}
+.truck-view .truck-carbon-face{opacity:.10;mix-blend-mode:screen;pointer-events:none}
+.truck-view .truck-inner-line{fill:none;stroke:#bad0d5;stroke-opacity:.12;stroke-width:.9}
+.truck-view .truck-arc{fill:none;stroke:#adbcc4;stroke-opacity:.44;stroke-width:1.3}
+.truck-view .truck-warning-arc{fill:none;stroke:var(--model-accent,#e32132);stroke-width:2.2;stroke-opacity:.8}
+.truck-view .truck-boot-scan{fill:none;stroke:#dff8f5;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:9 91;opacity:0;filter:drop-shadow(0 0 3px #92f1e9)}
+.truck-view .truck-tick{fill:none;stroke:#c9d0d0;stroke-width:1.2;stroke-opacity:.58}
+.truck-view .truck-tick.micro{stroke-width:.55;stroke-opacity:.27}
+.truck-view .truck-tick.medium{stroke-width:.9;stroke-opacity:.48}
+.truck-view .truck-tick.major{stroke-width:1.2;stroke-opacity:.78}
+.truck-view .truck-tick-label{font-size:11px;font-weight:600;fill-opacity:.80}
+.truck-view [data-dial$=rpm] .truck-tick-label{font-size:9px}
+.truck-view [data-dial$=fuel] .truck-tick-label,.truck-view [data-dial$=temp] .truck-tick-label{font-size:7px}
+.truck-view [data-dial$=health] .truck-tick-label{font-size:6.5px}
+.truck-view .truck-tick.danger{stroke:var(--model-accent,#e32132);stroke-opacity:.94}
+.truck-view .truck-tick-label.danger{fill:var(--model-accent,#e32132)}
+.truck-view .truck-title{font-size:9px;letter-spacing:1px;font-weight:600;fill-opacity:.75}
+.truck-view [data-dial$=speed] .truck-title{font-size:16px;letter-spacing:.8px}
+.truck-view [data-dial$=fuel] .truck-title,.truck-view [data-dial$=temp] .truck-title,.truck-view [data-dial$=health] .truck-title{font-size:6px;letter-spacing:.4px}
+.truck-view .truck-needle path{fill:var(--model-accent,#e32132);stroke:#ff6970;stroke-opacity:.35;stroke-width:.6;filter:drop-shadow(0 0 2px #e9253544)}
+.truck-view .truck-needle circle{fill:#261012;stroke:#de3c46;stroke-width:1}
+.truck-view .truck-speed{font-size:24px;font-weight:700;fill:#f4f7f4;filter:drop-shadow(0 0 2px #d3e2e439)}
+.truck-view .truck-gear{font-size:12px;font-weight:700;fill-opacity:.82}
+.truck-view .truck-gear-strip rect{fill:#040b0d;fill-opacity:.88;stroke:#768b8e;stroke-opacity:.52;stroke-width:.7}
+.truck-view .truck-gear-strip text{font-size:8px;font-weight:700;fill:#829496;fill-opacity:.76}
+.truck-view .truck-gear-strip text.is-current{fill:#f2fcf8;fill-opacity:1;filter:drop-shadow(0 0 2px #c7eee8)}
+.truck-view .truck-gear-strip [data-gear-caret]{fill:#e2f1eb;filter:drop-shadow(0 0 2px #b7eeea)}
+.truck-view .truck-fixed-symbol{fill:none;stroke:#d5e7e3;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;opacity:.7}
+.truck-view .truck-gauge-value{font-size:10px;font-weight:700;fill:#e7f5ee}
+.truck-view .truck-trip-screen{fill:#040b0d;fill-opacity:.92;stroke:#768b8e;stroke-opacity:.52;stroke-width:.7;filter:drop-shadow(0 1px 2px #0009)}
+.truck-view .truck-trip-label{font-size:7px;letter-spacing:.65px;text-anchor:start;fill:#91a4a6}
+.truck-view .truck-trip-value,.truck-view .truck-odometer{font-size:9px;font-weight:600;text-anchor:end;fill:#e6f2ee}
+.truck-view .truck-odometer{font-size:11px;letter-spacing:.25px}
+.truck-view .truck-signals [data-lamp]{opacity:.38}
+.truck-view .truck-signals>path[data-lamp]{fill:#73877f;fill-opacity:.66}
+.truck-view .truck-signals>path[data-lamp].is-on{fill:#42f096;fill-opacity:1;opacity:1;filter:drop-shadow(0 0 4px #49fb98)}
+.truck-view .truck-signals .truck-hazard{fill:none;stroke:#8b5960;stroke-width:1.7;stroke-linejoin:round;stroke-linecap:round}
+.truck-view .truck-signals .truck-hazard path{fill:none}
+.truck-view .truck-signals .truck-hazard.is-on{opacity:1;stroke:#ff4556;filter:drop-shadow(0 0 4px #ff3045)}
+.truck-view .truck-lamps [data-lamp]{fill:none;stroke:#84959a;stroke-opacity:.65;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5;opacity:.44}
+.truck-view .truck-lamps [data-lamp].is-on{stroke:#f1ba53;stroke-opacity:1;opacity:1;filter:drop-shadow(0 0 3px #f1ba5388)}
+.truck-view .truck-lamps [data-lamp=seatbelt].is-on,.truck-view .truck-lamps [data-lamp=handbrake].is-on{stroke:#ef4254}
+.truck-view .truck-lamps [data-lamp=headlights].is-on{stroke:#98c9ff}
+.truck-view .truck-lamps [data-lamp=temperature].is-on,.truck-view .truck-lamps [data-lamp=battery].is-on,.truck-view .truck-lamps [data-lamp=oil].is-on{stroke:#ff665b}
+.truck-view .truck-lamps text{fill:#648079;font-size:5.5px;stroke:none;stroke-opacity:1}
+.truck-view .truck-lamps [data-lamp].is-on text{fill:#eec464}
+.truck-view:not(.truck-reduced-motion) .truck-lamps [data-lamp],.truck-view:not(.truck-reduced-motion) .truck-signals [data-lamp]{transition:opacity .14s ease-out,stroke-opacity .14s ease-out,fill-opacity .14s ease-out}
+.truck-view .truck-screw{fill:#17282e;stroke:#50636a;stroke-width:1}
+.truck-view .truck-dial-glass{opacity:var(--velo-glass-opacity,.35)}
+.truck-view.truck-low-fuel [data-dial$=fuel] .truck-needle path,.truck-view.truck-hot [data-dial$=temp] .truck-needle path{fill:#ff4a4a;filter:drop-shadow(0 0 4px #ed3030)}
+.truck-view.truck-redline [data-dial$=rpm] .truck-needle path{filter:drop-shadow(0 0 5px #ed3030)}
+.truck-view.truck-boot .truck-needle path{filter:drop-shadow(0 0 4px #fa525a99)}
+.truck-view.truck-boot .truck-speed,.truck-view.truck-boot .truck-gauge-value,.truck-view.truck-boot .truck-gear-strip,.truck-view.truck-boot .truck-trip{animation:truck-display-wake .82s ease-out both}
+.truck-view.truck-boot .truck-rim-highlight{animation:truck-rim-wake 1.1s ease-out both}
+.truck-view.truck-shifting .truck-gear-strip rect{animation:truck-shift-frame .3s ease-out}
+.truck-view.truck-shifting .truck-gear-strip text.is-current,.truck-view.truck-shifting .truck-gear-strip [data-gear-caret]{animation:truck-shift-light .3s ease-out}
+.truck-view.truck-redline:not(.truck-reduced-motion) [data-dial$=rpm] .truck-warning-arc,.truck-view.truck-low-fuel:not(.truck-reduced-motion) [data-dial$=fuel] .truck-warning-arc,.truck-view.truck-hot:not(.truck-reduced-motion) [data-dial$=temp] .truck-warning-arc{animation:truck-warning-breathe .75s ease-in-out infinite alternate}
+@keyframes truck-display-wake{0%,12%{opacity:.16}18%{opacity:.88}23%{opacity:.38}36%,100%{opacity:1}}
+@keyframes truck-rim-wake{0%{stroke-opacity:.18;filter:none}45%{stroke-opacity:1;filter:drop-shadow(0 0 5px #d1e4eb88)}100%{stroke-opacity:.92;filter:drop-shadow(0 0 2px #d1e4eb55)}}
+@keyframes truck-shift-frame{0%{stroke:#768b8e;stroke-opacity:.52}35%{stroke:#e9faf6;stroke-opacity:1}100%{stroke:#768b8e;stroke-opacity:.52}}
+@keyframes truck-shift-light{0%{opacity:.5}35%{opacity:1;filter:drop-shadow(0 0 4px #e5fff9)}100%{opacity:1}}
+@keyframes truck-warning-breathe{from{stroke-opacity:.42}to{stroke-opacity:1}}
+.truck-view.truck-lamp-test .truck-lamps [data-lamp],.truck-view.truck-lamp-test .truck-signals [data-lamp]{stroke-opacity:1;fill-opacity:1;opacity:1}
+.truck-view.truck-engine-off .truck-arc,.truck-view.truck-engine-off .truck-tick{opacity:.58}
+body[data-velo-quality=low] .truck-view .truck-needle path,body[data-velo-quality=low] .truck-view [data-lamp]{filter:none}
+body[data-velo-quality=low] .truck-view .truck-boot-scan{display:none}
+body[data-velo-quality=low] .truck-view .truck-rim-highlight,body[data-velo-quality=low] .truck-view .truck-gear-strip text.is-current{filter:none}
+body[data-velo-quality=low] .truck-view.truck-boot .truck-rim-highlight{animation:none}
+.truck-view.truck-reduced-motion *{animation:none!important;transition:none!important}
+@media(prefers-reduced-motion:reduce){.truck-view .truck-boot-scan{display:none}.truck-view *{animation:none!important;transition:none!important}}
+.truck-view .truck-speed,.truck-view .truck-trip-screen{opacity:calc(.5 + .5 * var(--velo-light-brightness,1))}
