@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>APEX — Speedometer Studio</title>
+  <link rel="stylesheet" href="velo_core/web/core.css">
+  <link rel="stylesheet" href="velo_core/web/dev.css">
+  <link rel="stylesheet" href="velo_core/web/studio-layout.css">
+  <link rel="stylesheet" href="velo_core/web/shift.css">
+  <link rel="stylesheet" href="velo_core/web/editor.css">
+  <link rel="stylesheet" href="velo_core/web/instruments.css">
+  <script defer src="velo_core/web/offers.js"></script>
+  <script defer src="velo_core/web/engine.js"></script>
+  <script defer src="velo_core/web/instruments.js"></script>
+  <script defer src="velo_core/web/preferences.js"></script>
+  <script defer src="velo_core/web/shift.js"></script>
+  <script defer src="velo_core/web/catalog.js"></script>
+  <script defer src="velo_core/web/editor.js"></script>
+  <script defer src="velo_core/web/dev.js"></script>
+</head>
+<body class="studio">
+  <header class="topbar">
+    <a class="brand" href="DEV.html" aria-label="APEX Studio"><svg width="27" height="27" viewBox="0 0 27 27" fill="none" aria-hidden="true"><path d="M2 23 13.5 3 25 23H19L13.5 13 8 23Z" fill="currentColor"/><path d="M10 23 13.5 17 17 23" fill="#f5283e"/></svg><strong>APEX<span>INSTRUMENT STUDIO</span></strong></a>
+    <div class="top-meta"><span class="status-dot"></span> PRÉVIA LOCAL <span class="separator">/</span> FIVEM · QBOX / QB <span class="version">V 3.4</span></div>
+  </header>
+  <main class="workspace">
+    <section class="preview-column">
+      <div class="section-heading"><div><span class="eyebrow">DA REFERÊNCIA À ESTRADA</span><h1>O painel. Em movimento.</h1></div><button class="icon-button" id="fullscreen" title="Tela cheia (F)" aria-label="Tela cheia">⛶</button></div>
+      <div class="stage" id="stage" data-backdrop="road">
+        <div class="road-scene" aria-hidden="true"><div class="sky"></div><div class="forest"></div><div class="asphalt"></div><div class="guardrail"></div><div class="road-lines"></div><div class="dashboard"></div></div>
+        <div class="stage-top"><span class="live-label"><i></i> LIVE PREVIEW</span><span id="scenario-label">REFERÊNCIA · 158 KM/H</span></div>
+        <div class="reference-frame" id="reference-frame" hidden><span>IMAGEM ORIGINAL</span><img src="velo_core/web/assets/reference.png" alt="Referência original enviada: velocímetro circular com velocidade 158" width="472" height="296"></div>
+        <div class="hud-position"><div id="speedometer" aria-label="Velocímetro interativo"></div></div>
+        <div class="stage-bottom"><span id="engine-status"><i></i> MOTOR LIGADO</span><span>SVG VETORIAL <b>·</b> FUNDO TRANSPARENTE</span></div>
+      </div>
+      <div class="viewer-toolbar"><div class="segmented" aria-label="Fundo da prévia"><button class="active" data-backdrop="road" aria-pressed="true">Estrada</button><button data-backdrop="dark" aria-pressed="false">Escuro</button><button data-backdrop="grid" aria-pressed="false">Transparência</button></div><button class="text-button open-editor-button" id="open-editor">✥ Abrir editor</button><button class="text-button" id="compare" aria-pressed="false">◫ <span>Comparar referência</span></button></div>
+      <div class="timeline-card"><div class="timeline-heading"><span><i class="red-dot"></i> SEQUÊNCIA DE CONDUÇÃO</span><span id="demo-time">00:00 / 00:32</span></div><div class="timeline"><div id="timeline-progress"></div><span style="left:0%"></span><span style="left:16%"></span><span style="left:48%"></span><span style="left:77%"></span><span style="left:100%"></span></div><div class="timeline-labels"><span>Ignição</span><span>Aceleração</span><span>Trocas de marcha</span><span>Limitador</span><span>Desligamento</span></div></div>
+      <p class="preview-note">O mesmo painel que vai para o jogo. Abra este arquivo para testar sem FiveM, servidor ou instalação.</p>
+    </section>
+    <aside class="control-panel" aria-label="Controles do simulador">
+      <div class="panel-heading"><span>CONTROLE DO PAINEL</span><span class="small-tag">DEV</span></div>
+      <details class="dev-advanced"><summary>Perfis, viagem e diagnóstico</summary><label for="vehicle-profile">Perfil do veículo</label><select id="vehicle-profile"><option value="default">Original · 9.000 RPM</option><option value="city">Urbano · 6.500 RPM</option><option value="sport">Esportivo · 8.000 RPM</option><option value="bike">Moto · 12.000 RPM</option></select><label class="dev-extra-check"><input id="night-mode" type="checkbox"> Simular noite</label><label class="dev-extra-check"><input id="missing-data" type="checkbox"> Simular falha de sensores</label><label class="dev-extra-check"><input id="gps-route" type="checkbox"> Destino no GPS</label><label for="route-distance">Distância até o destino <output id="route-distance-out">8,4 km</output></label><input id="route-distance" type="range" min="0" max="50" step=".1" value="8.4"><label for="travel-minutes">Minutos em movimento</label><input id="travel-minutes" type="range" min="0" max="180" step="1" value="0"><p class="dev-metrics" id="performance-readout">Medindo renderização…</p></details>
+      <div class="preset-buttons"><button id="ignition" class="primary-button"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 2v9M6 5a9 9 0 1 0 12 0"/></svg> Testar ignição <kbd>I</kbd></button><button id="drive" class="secondary-button">▶ <span>Simular condução</span> <kbd>ESPAÇO</kbd></button></div>
+      <div class="control-section">
+        <div class="control-label"><label for="speed">Velocidade</label><output for="speed" id="speed-out">158 <small>KM/H</small></output></div><input id="speed" type="range" min="0" max="320" value="158" step="1">
+        <div class="control-label"><label for="rpm">Rotação</label><output for="rpm" id="rpm-out">6.345 <small>RPM</small></output></div><input id="rpm" class="rpm-slider" type="range" min="0" max="9000" value="6345" step="5">
+        <div class="gear-row"><label for="gear">Marcha</label><select id="gear"><option>R</option><option>N</option><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select><div class="unit-switch"><button class="active" data-unit="KM/H" aria-pressed="true">KM/H</button><button data-unit="MPH" aria-pressed="false">MPH</button></div></div>
+      </div>
+      <div class="control-section secondary-controls">
+        <div class="control-label"><label for="fuel">Combustível</label><output for="fuel" id="fuel-out">70%</output></div><input id="fuel" type="range" min="0" max="100" value="70">
+        <div class="control-label"><label for="temperature">Temperatura</label><output for="temperature" id="temperature-out">86 °C</output></div><input id="temperature" type="range" min="40" max="140" value="86">
+      </div>
+      <div class="control-section"><div class="section-label">LUZES & ESTADO</div><div class="toggle-grid">
+        <label class="toggle"><input id="engine" type="checkbox" checked><span></span>Motor ligado</label>
+        <label class="toggle"><input id="seatbelt" type="checkbox"><span></span>Cinto afivelado</label>
+        <label class="toggle"><input id="engineWarning" type="checkbox" checked><span></span>Falha no motor</label>
+        <label class="toggle"><input id="handbrake" type="checkbox" checked><span></span>Freio de mão</label>
+        <label class="toggle"><input id="abs" type="checkbox" checked><span></span>ABS</label>
+        <label class="toggle"><input id="traction" type="checkbox" checked><span></span>Tração / TC</label>
+        <label class="toggle"><input id="left" type="checkbox"><span></span>Seta esquerda</label>
+        <label class="toggle"><input id="right" type="checkbox"><span></span>Seta direita</label>
+        <label class="toggle"><input id="hazard" type="checkbox"><span></span>Pisca-alerta</label>
+      </div></div>
+      <div class="scenario-buttons"><button id="redline">Alta rotação <span>↗</span></button><button id="reference">Estado da foto <span>↺</span></button><button id="warnings">Alertas críticos <span>!</span></button><button id="shutdown">Desligar <span>◌</span></button></div>
+      <div class="control-section settings-section"><div class="control-label"><label for="scale">Tamanho da prévia</label><output for="scale" id="scale-out">100%</output></div><input id="scale" type="range" min="65" max="120" value="100"><p>Escala de 0 a 9 · RPM ×1000.</p></div>
+    </aside>
+  </main>
+  <footer><span><b>APEX</b> / SPEEDOMETER</span><span><kbd>I</kbd> Ignição <kbd>R</kbd> Limitador <kbd>ESPAÇO</kbd> Condução <kbd>F</kbd> Tela cheia</span><span>100% LOCAL <i>●</i></span></footer>
+</body>
+</html>

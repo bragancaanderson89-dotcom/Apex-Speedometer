@@ -1,0 +1,5 @@
+@font-face{font-family:Rajdhani;src:url('assets/Rajdhani-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+:root{--hud-opacity:1;--red:#ff1328;--amber:#ffd000}html{margin:0;min-height:100%;background:transparent}body.nui{margin:0;width:100%;height:100vh;overflow:hidden;background:transparent!important}
+#speedometer{pointer-events:none;position:relative}.model-surface{width:100%;height:100%;position:relative}.model-surface[hidden]{display:none!important}.model-surface>div{width:100%;height:100%}
+.model-preview{display:block;position:relative;width:100%;height:90px;pointer-events:none;overflow:hidden}.model-preview .cluster,.model-preview .zsx-view{height:100%;width:100%}.model-preview svg{height:100%;width:100%;display:block}.model-preview .cluster{aspect-ratio:auto}.model-preview .cluster svg{aspect-ratio:auto}
+.velo-no-model{color:#9baec2;font:14px Rajdhani,Arial;padding:18px;line-height:1.5}.viewer-toolbar .open-editor-button{white-space:nowrap}

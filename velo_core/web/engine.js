@@ -1,0 +1,27 @@
+/* One telemetry/timeline owner for every installed model and the LED bar. */
+(() => {
+ 'use strict';
+ const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)),num=(v,f,a,b)=>typeof v==='number'&&Number.isFinite(v)?clamp(v,a,b):f;
+ const ease=t=>1-Math.pow(1-clamp(t,0,1),3);
+ const defaults={visible:false,engine:false,speed:0,rpm:0,gear:'N',mode:'M',fuel:70,temperature:85,seatbelt:true,seatbeltAvailable:true,engineWarning:false,handbrake:false,abs:false,traction:false};
+ const settings={unit:'KM/H',maxRpm:9000,redline:.78,limiter:.96,lowFuel:15,hotTemperature:115,ignitionDuration:3000,animation:true,width:440,right:28,bottom:24,opacity:1};
+ function ignitionFrame(t,s){let amount=0,phase='raster';if(t>=.18&&t<.43){phase='up';amount=ease((t-.18)/.25);}else if(t>=.43&&t<.49){phase='peak';amount=1;}else if(t>=.49&&t<.72){phase='down';amount=1-ease((t-.49)/.23);}else if(t>=.72&&t<.8)phase='zero';else if(t>=.8){phase='settle';amount=ease((t-.8)/.2);}const live=phase==='settle';return{phase,speed:amount*(live?s.speed:99),rpm:amount*(live?s.rpm:1),fuel:amount*(live?s.fuel:100),temperature:40+amount*(live?s.temperature-40:90)};}
+ class Engine{
+  constructor(){this.host=document.getElementById('speedometer');this.state={...defaults};this.config={...settings};this.current={speed:0,rpm:0,fuel:0,temperature:40};this.frame=null;this.bootAt=null;this.last=0;this.shiftUntil=0;this.motion=matchMedia('(prefers-reduced-motion: reduce)');this.loop=this.loop.bind(this);}
+  get root(){return window.apexEditor?.activeRoot||this.host;}
+  configure(input={}){if(!input||typeof input!=='object')return;for(const [key,min,max]of[['maxRpm',4000,18000],['redline',.5,.98],['limiter',.8,1],['lowFuel',0,50],['hotTemperature',80,170],['ignitionDuration',800,5000],['width',220,1000],['right',0,500],['bottom',0,500],['opacity',.2,1]])this.config[key]=num(input[key],this.config[key],min,max);if(typeof input.animation==='boolean')this.config.animation=input.animation;if(['KM/H','MPH'].includes(input.unit))this.config.unit=input.unit;if(input.preferences)this.preferencePayload=input.preferences;if(input.offers)window.VeloOffers?.set(input.offers);window.dispatchEvent(new CustomEvent('apex:configure',{detail:input}));if(input.models)window.VeloModels?.setCatalog(input.models);this.wake();}
+  update(data={}){if(!data||typeof data!=='object')return;const before={...this.state};for(const key of['visible','engine','seatbelt','seatbeltAvailable','engineWarning','handbrake','abs','traction','left','right','headlights','highbeam','oilWarning','batteryWarning','doorOpen','police','emergencyLights'])if(typeof data[key]==='boolean')this.state[key]=data[key];for(const[key,min,max]of[['speed',0,999],['rpm',0,1],['fuel',0,100],['temperature',-40,180]])this.state[key]=num(data[key],this.state[key],min,max);if(/^(N|R|[0-9]|1[0-2])$/.test(String(data.gear)))this.state.gear=String(data.gear);if(data.mode==='A'||data.mode==='M')this.state.mode=data.mode;if(this.state.gear!==before.gear)this.shiftUntil=performance.now()+300;if(!this.state.visible||!this.state.engine)this.bootAt=null;else if(data.ignition!==false&&(data.ignition===true||!before.engine||!before.visible))this.ignite();this.wake();}
+  ignite(){if(!this.state.visible||!this.state.engine)return;this.bootAt=this.motion.matches||!this.config.animation?null:performance.now();this.current={speed:0,rpm:0,fuel:0,temperature:40};this.wake();}
+  cancelIgnition(){this.bootAt=null;this.wake();}
+  receive(m){if(!m||!['velo_core','apex_speedometer'].includes(m.source))return;if(window.apexEditor?.defer(m))return;if(m.action==='update')this.update(m.data);if(m.action==='hide')this.update({visible:false});if(m.action==='configure')this.configure(m.config);if(m.action==='ignition')this.ignite();}
+  wake(){if(this.frame===null){this.last=performance.now();this.frame=requestAnimationFrame(this.loop);}}
+  loop(now){this.frame=null;const dt=clamp((now-this.last)/1000,0,.064);this.last=now;const reduced=this.motion.matches||!this.config.animation;let boot=false,progress=null,phase='idle',targets={speed:this.state.speed,rpm:this.state.engine?this.state.rpm:0,fuel:this.state.fuel,temperature:this.state.temperature};if(this.bootAt!==null){progress=(now-this.bootAt)/this.config.ignitionDuration;if(progress>=1||reduced){this.bootAt=null;progress=null;}else{boot=true;targets=ignitionFrame(progress,this.state);phase=targets.phase;}}for(const[key,rate]of[['speed',13],['rpm',19],['fuel',5],['temperature',4]])this.current[key]+=(targets[key]-this.current[key])*(boot||reduced?1:1-Math.exp(-dt*rate));this.currentFrame={state:this.state,current:this.current,config:this.config,boot,phase,progress,now,shifting:now<this.shiftUntil};window.dispatchEvent(new CustomEvent('apex:frame',{detail:this.currentFrame}));if(this.state.visible||boot)this.frame=requestAnimationFrame(this.loop);}
+ }
+ window.apexHud=new Engine();window.ApexSpeedometer={ignitionFrame,defaults,settings};
+ window.addEventListener('message',e=>window.apexHud.receive(e.data));
+ window.addEventListener('DOMContentLoaded',()=>{
+  if(typeof GetParentResourceName!=='function')return;
+  let attempts=0;
+  const ready=()=>fetch(`https://${GetParentResourceName()}/ready`,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'}).then(r=>{if(!r.ok)throw Error('ready');return r.json();}).then(v=>window.apexHud.configure(v.config)).catch(()=>{if(++attempts<10)setTimeout(ready,500);});ready();
+ });
+})();
