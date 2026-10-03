@@ -39,3 +39,19 @@ Esses valores são calibrações de exibição que você escolhe. O native do GT
 ### Histórico e desempenho
 
 O odômetro representa a distância medida a partir desta instalação, não o histórico anterior do veículo. É local à instalação do FiveM; clientes diferentes não compartilham o registro e veículos com a mesma placa/modelo usam a mesma identidade. Uma placa vazia não é persistida. Gravações ocorrem a cada 30 segundos, ao trocar/sair do veículo e ao parar o recurso; um fechamento abrupto pode perder o trecho ainda não salvo. Não há alteração do motor, combustível ou handling.
+
+## 📸 Preview
+
+![Preview 1](preview/Preview1.png)
+
+![Preview 2](preview/Preview2.png)
+
+![Preview 3](preview/Preview3.png)
+
+![Preview 4](preview/Preview4.png)
+
+![Preview 5](preview/Preview5.png)
+
+![Preview 6](preview/Preview6.png)
+
+![Preview 7](preview/Preview7.png)
